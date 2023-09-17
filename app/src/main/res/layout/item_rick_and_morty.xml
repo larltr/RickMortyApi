@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/forCharacterBackBackground">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="380dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/forCharacterMaterialCardViewColor"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/item_character_image"
+        android:layout_width="150dp"
+        android:layout_height="160dp"
+        android:background="@color/white"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
+        app:layout_constraintStart_toStartOf="@+id/materialCardView"
+        app:layout_constraintTop_toTopOf="@+id/materialCardView" />
+
+    <TextView
+        android:id="@+id/item_character_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:elevation="1dp"
+        android:fontFamily="sans-serif"
+        android:text="Centaur"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/item_character_image"
+        app:layout_constraintTop_toTopOf="@+id/materialCardView" />
+
+    <TextView
+        android:id="@+id/item_character_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:elevation="1dp"
+        android:text="Alive -"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/item_character_image"
+        app:layout_constraintTop_toBottomOf="@+id/item_character_name" />
+
+    <TextView
+        android:id="@+id/item_character_species"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="25dp"
+        android:elevation="1dp"
+        android:text="Mythological Creature"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/type"
+        app:layout_constraintStart_toEndOf="@+id/item_character_status"
+        app:layout_constraintTop_toTopOf="@+id/materialCardView" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="0dp"
+        android:elevation="1dp"
+        android:text="Last known location:"
+        android:textColor="#9D9D9D"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/item_character_image"
+        app:layout_constraintTop_toBottomOf="@id/item_character_status" />
+
+    <TextView
+        android:id="@+id/item_character_namePro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:elevation="1dp"
+        android:text="Mr. Goldenfold's dream"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/item_character_image"
+        app:layout_constraintTop_toBottomOf="@+id/type" />
+
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="7dp"
+        android:elevation="1dp"
+        android:text="First seen in:"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/item_character_image"
+        app:layout_constraintTop_toBottomOf="@id/item_character_namePro" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:elevation="1dp"
+        android:text="Lawnmower Dog"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/item_character_image"
+        app:layout_constraintTop_toBottomOf="@id/gender" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
