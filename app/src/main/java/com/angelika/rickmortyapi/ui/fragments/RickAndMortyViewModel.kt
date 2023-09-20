@@ -7,7 +7,7 @@ import com.angelika.rickmortyapi.models.CharacterModel
 import com.angelika.rickmortyapi.models.RickAndMortyResponse
 import com.angelika.rickmortyapi.repositories.RickAndMortyRepository
 
-class RickAndMortyViewModel: ViewModel() {
+class RickAndMortyViewModel : ViewModel() {
 
     private val characterRepository = RickAndMortyRepository()
 
@@ -21,25 +21,34 @@ class RickAndMortyViewModel: ViewModel() {
         fetchCharacters()
     }
 
-    fun fetchCharacters(){
-        characterRepository.fetchCharacter(onResponse ={data ->
-                _characterLiveData.value = data
-            },
-            onFailure ={message ->
+    fun fetchCharacters() {
+        characterRepository.fetchCharacter(onResponse = { data ->
+            _characterLiveData.value = data
+        },
+            onFailure = { message ->
                 _errorLiveData.value = message
             }
         )
     }
 
-    fun query(name:String){
-        characterRepository.query(name = name, onResponse ={data ->
+    fun query(
+        name: String,
+        status: String,
+        species: String,
+        type: String,
+        gender: String,
+    ) {
+        characterRepository.query(name = name,
+            status = status,
+            species = species,
+            type = type,
+            gender = gender,
+            onResponse = { data ->
                 _characterLiveData.value = data
             },
-            onFailure ={message ->
+            onFailure = { message ->
                 _errorLiveData.value = message
             }
         )
     }
-
-
 }

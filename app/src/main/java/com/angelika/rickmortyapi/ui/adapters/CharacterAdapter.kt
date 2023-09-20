@@ -12,13 +12,15 @@ import com.bumptech.glide.Glide
 class CharacterAdapter :
     ListAdapter<CharacterModel, CharacterAdapter.ViewHolder>(DiffUtilCallback()) {
 
-     inner class ViewHolder(private val binding: ItemRickAndMortyBinding) :
+    inner class ViewHolder(private val binding: ItemRickAndMortyBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(characterModel: CharacterModel) {
             Glide.with(binding.itemCharacterImage).load(characterModel.image)
                 .into(binding.itemCharacterImage)
             binding.itemCharacterName.text = characterModel.name
+            binding.itemCharacterStatus.text = characterModel.status
+            binding.itemCharacterSpecies.text = characterModel.species
         }
     }
 

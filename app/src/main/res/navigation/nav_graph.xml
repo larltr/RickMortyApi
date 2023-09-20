@@ -7,7 +7,8 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.angelika.rickmortyapi.ui.fragments.ListFragment"
+        android:name="com.angelika.rickmortyapi.ui.fragments.RickAndMortyFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_rick_and_morty" />
+
 </navigation>

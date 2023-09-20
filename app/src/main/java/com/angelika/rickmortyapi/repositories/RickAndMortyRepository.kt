@@ -36,10 +36,21 @@ class RickAndMortyRepository {
 
     fun query(
         name: String,
+        status: String,
+        species: String,
+        type: String,
+        gender: String,
+
         onResponse: (data: RickAndMortyResponse<CharacterModel>) -> Unit,
         onFailure: (errorMassage: String) -> Unit
     ) {
-        App.characterApi?.query(name)
+        App.characterApi?.query(
+            name = name,
+            status = status,
+            species = species,
+            type = type,
+            gender = gender
+        )
             ?.enqueue(object : Callback<RickAndMortyResponse<CharacterModel>> {
                 override fun onResponse(
                     call: Call<RickAndMortyResponse<CharacterModel>>,
