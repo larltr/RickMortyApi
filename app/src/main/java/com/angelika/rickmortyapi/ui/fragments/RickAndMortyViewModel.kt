@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.angelika.rickmortyapi.models.CharacterModel
-import com.angelika.rickmortyapi.repositories.RickAndMortyRepository
+import com.angelika.rickmortyapi.data.repositories.RickAndMortyRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

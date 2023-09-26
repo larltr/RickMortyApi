@@ -1,6 +1,6 @@
-package com.angelika.rickmortyapi.data.remout
+package com.angelika.rickmortyapi.data.remote
 
-import com.angelika.rickmortyapi.data.remout.apiservices.RickAndMortyApiService
+import com.angelika.rickmortyapi.data.remote.apiservices.RickAndMortyApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

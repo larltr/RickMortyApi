@@ -1,4 +1,4 @@
-package com.angelika.rickmortyapi.data.remout.apiservices
+package com.angelika.rickmortyapi.data.remote.apiservices
 
 import com.angelika.rickmortyapi.models.CharacterModel
 import com.angelika.rickmortyapi.models.RickAndMortyResponse

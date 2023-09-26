@@ -1,7 +1,7 @@
 package com.angelika.rickmortyapi.di
 
-import com.angelika.rickmortyapi.data.remout.RetrofitClient
-import com.angelika.rickmortyapi.data.remout.apiservices.RickAndMortyApiService
+import com.angelika.rickmortyapi.data.remote.RetrofitClient
+import com.angelika.rickmortyapi.data.remote.apiservices.RickAndMortyApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

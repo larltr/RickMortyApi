@@ -1,6 +1,6 @@
-package com.angelika.rickmortyapi.repositories
+package com.angelika.rickmortyapi.data.repositories
 
-import com.angelika.rickmortyapi.data.remout.apiservices.RickAndMortyApiService
+import com.angelika.rickmortyapi.data.remote.apiservices.RickAndMortyApiService
 import com.angelika.rickmortyapi.models.CharacterModel
 import com.angelika.rickmortyapi.models.RickAndMortyResponse
 import retrofit2.Call
