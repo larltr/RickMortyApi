@@ -8,17 +8,12 @@ import retrofit2.http.Query
 
 interface RickAndMortyApiService {
 
-    @GET("api/character")
+    @GET("character")
     fun fetchCharacters(
-    ): Call<RickAndMortyResponse<CharacterModel>>
-
-    @GET("api/character")
-    fun query(
-        @Query("name") name:String,
+        @Query("name") name: String,
         @Query("status") status: String,
         @Query("species") species: String,
         @Query("type") type: String,
-        @Query("gender") gender: String,
-
-        ):Call<RickAndMortyResponse<CharacterModel>>
+        @Query("gender") gender: String
+    ): Call<RickAndMortyResponse<CharacterModel>>
 }

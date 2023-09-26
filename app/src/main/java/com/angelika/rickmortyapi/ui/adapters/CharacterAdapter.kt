@@ -39,7 +39,6 @@ class CharacterAdapter :
         holder.onBind(getItem(position))
     }
 
-
     class DiffUtilCallback : DiffUtil.ItemCallback<CharacterModel>() {
 
         override fun areItemsTheSame(oldItem: CharacterModel, newItem: CharacterModel): Boolean {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_in_fifty">50dp</dimen>
+    <dimen name="size_in_twenty">20dp</dimen>
+    <dimen name="size_in_seventy">70dp</dimen>
+    <dimen name="size_in_fifteen_dp">15dp</dimen>
+    <dimen name="size_in_ten">10dp</dimen>
+    <dimen name="size_in_one_hundred_forty_five">148dp</dimen>
+    <dimen name="size_in_one_hundred_fifty">150dp</dimen>
+    <dimen name="size_in_fifteen">15sp</dimen>
+    <dimen name="size_in_twelve">12sp</dimen>
+</resources>

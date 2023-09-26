@@ -24,6 +24,5 @@ data class CharacterModel(
 
     @SerializedName("gender")
     val gender: String
-
-) : java.io.Serializable
+) 
 

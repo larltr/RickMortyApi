@@ -20,11 +20,11 @@ class RetrofitClient {
         .writeTimeout(30, TimeUnit.SECONDS)
         .build()
 
-    private val retrofit = Retrofit.Builder().baseUrl("https://rickandmortyapi.com/")
+    private val retrofit = Retrofit.Builder().baseUrl("https://rickandmortyapi.com/api/")
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient)
         .build()
 
-    val pokemonApiService: RickAndMortyApiService =
+    val characterApi: RickAndMortyApiService =
         retrofit.create(RickAndMortyApiService::class.java)
 }

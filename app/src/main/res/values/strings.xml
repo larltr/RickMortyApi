@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">RickMortyApi</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">search</string>
+    <string name="et_status">Status</string>
+    <string name="et_species">Species</string>
+    <string name="et_type">Type</string>
+    <string name="et_gender">Gender</string>
+    <string name="text_name_hero">Name hero</string>
+    <string name="text_status">status</string>
+    <string name="text_hyphen">-</string>
+    <string name="txet_species">species</string>
+    <string name="text_last_known_location">Last known location:</string>
+    <string name="text_first_seen_in">First seen in:</string>
 </resources>

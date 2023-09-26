@@ -4,51 +4,50 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.angelika.rickmortyapi.models.CharacterModel
-import com.angelika.rickmortyapi.models.RickAndMortyResponse
 import com.angelika.rickmortyapi.repositories.RickAndMortyRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class RickAndMortyViewModel : ViewModel() {
+@HiltViewModel
+class RickAndMortyViewModel @Inject constructor(
+    private val characterRepository: RickAndMortyRepository
+) : ViewModel() {
 
-    private val characterRepository = RickAndMortyRepository()
-
-    private val _characterLiveData = MutableLiveData<RickAndMortyResponse<CharacterModel>>()
-    val characterLiveData: LiveData<RickAndMortyResponse<CharacterModel>> get() = _characterLiveData
-    private val _errorLiveData = MutableLiveData<String>()
-
-    val errorLiveData: LiveData<String> get() = _errorLiveData
+    private val _characterLiveData = MutableLiveData(CharacterUiState<List<CharacterModel>>())
+    val characterLiveData: LiveData<CharacterUiState<List<CharacterModel>>> = _characterLiveData
 
     init {
-        fetchCharacters()
+        fetchCharacters(name = "", status = "", species = "", type = "", gender = "")
     }
 
-    fun fetchCharacters() {
-        characterRepository.fetchCharacter(onResponse = { data ->
-            _characterLiveData.value = data
-        },
-            onFailure = { message ->
-                _errorLiveData.value = message
-            }
-        )
-    }
-
-    fun query(
+    fun fetchCharacters(
         name: String,
         status: String,
         species: String,
         type: String,
-        gender: String,
+        gender: String
     ) {
-        characterRepository.query(name = name,
+        characterRepository.fetchCharacter(
+            onResponse = { data ->
+                val newValue =
+                    _characterLiveData.value?.copy(isLoading = false, success = data.results)
+                _characterLiveData.value = newValue
+            },
+            onFailure = { message ->
+                val newValue = _characterLiveData.value?.copy(isLoading = false, error = message)
+                _characterLiveData.value = newValue
+            },
+            name = name,
             status = status,
             species = species,
             type = type,
-            gender = gender,
-            onResponse = { data ->
-                _characterLiveData.value = data
-            },
-            onFailure = { message ->
-                _errorLiveData.value = message
-            }
+            gender = gender
         )
     }
 }
+
+data class CharacterUiState<T>(
+    val isLoading: Boolean = true,
+    val error: String? = null,
+    val success: T? = null
+)
