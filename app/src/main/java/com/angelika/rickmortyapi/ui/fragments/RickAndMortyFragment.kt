@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -47,6 +48,8 @@ class RickAndMortyFragment : Fragment() {
         viewModel.characterLiveData.observe(viewLifecycleOwner) {
             it.error?.let {
                 Log.e("error", "You have big problems bro")
+                Toast.makeText(requireContext(), "You have big problems bro", Toast.LENGTH_SHORT)
+                    .show()
             }
             it.success?.let { character ->
                 characterAdapter.submitList(character)
@@ -60,13 +63,18 @@ class RickAndMortyFragment : Fragment() {
             btnVisible.isGone = true
         }
 
+        val gender = etGender.text.toString().trim()
+        val species = etSpecies.text.toString().trim()
+        val status = etStatus.text.toString().trim()
+        val type = eteType.text.toString().trim()
+
         btnInvisible.setOnClickListener {
             viewModel.fetchCharacters(
                 "",
-                gender = etGender.text.toString().trim(),
-                species = etSpecies.text.toString().trim(),
-                status = etStatus.text.toString().trim(),
-                type = eteType.text.toString().trim()
+                gender = gender,
+                species = species,
+                status = status,
+                type = type
             )
             fmEditText.isGone = true
             btnVisible.isVisible = true
@@ -78,10 +86,10 @@ class RickAndMortyFragment : Fragment() {
                 query?.let {
                     viewModel.fetchCharacters(
                         query,
-                        gender = etGender.text.toString().trim(),
-                        species = etSpecies.text.toString().trim(),
-                        status = etStatus.text.toString().trim(),
-                        type = eteType.text.toString().trim()
+                        gender = gender,
+                        species = species,
+                        status = status,
+                        type = type
                     )
                 }
                 return true
@@ -90,15 +98,15 @@ class RickAndMortyFragment : Fragment() {
             override fun onQueryTextChange(newText: String?): Boolean {
                 newText?.let {
                     viewModel.fetchCharacters(
-                        newText, gender = etGender.text.toString().trim(),
-                        species = etSpecies.text.toString().trim(),
-                        status = etStatus.text.toString().trim(),
-                        type = eteType.text.toString().trim()
+                        newText,
+                        gender = gender,
+                        species = species,
+                        status = status,
+                        type = type
                     )
                 }
                 return true
             }
-
         }))
     }
 

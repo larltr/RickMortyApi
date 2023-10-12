@@ -15,12 +15,12 @@ class CharacterAdapter :
     inner class ViewHolder(private val binding: ItemRickAndMortyBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(characterModel: CharacterModel) {
-            Glide.with(binding.itemCharacterImage).load(characterModel.image)
-                .into(binding.itemCharacterImage)
-            binding.itemCharacterName.text = characterModel.name
-            binding.itemCharacterStatus.text = characterModel.status
-            binding.itemCharacterSpecies.text = characterModel.species
+        fun onBind(characterModel: CharacterModel) = with(binding) {
+            Glide.with(itemCharacterImage).load(characterModel.image)
+                .into(itemCharacterImage)
+            itemCharacterName.text = characterModel.name
+            itemCharacterStatus.text = characterModel.status
+            itemCharacterSpecies.text = characterModel.species
         }
     }
 
